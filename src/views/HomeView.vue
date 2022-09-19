@@ -8,7 +8,7 @@
 
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
-              <transition name="zoom">
+              <transition name="flip">
                 <img src="@/assets/imgs/pokemons/001.png" v-if="exibir" />
               </transition>
 
