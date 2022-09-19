@@ -19,6 +19,7 @@
                 @leave-cancelled="quantoSaidaCancelada"
                 enter-active-class="animate__animated animate__bounceIn"
                 leave-active-class="animate__animated animate__bounceOut"
+                :duration="{ enter: 2000, leave: 1000 }"
               >
                 <img src="@/assets/imgs/pokemons/001.png" v-if="exibir" />
               </transition>
@@ -102,10 +103,11 @@ export default {
     antesDaEntrada(el) {
       console.log("Antes da Entrada", el);
     },
-    duranteAEntrada(el, done) {
+    // duranteAEntrada(el, done) {
+    duranteAEntrada(el) {
       console.log("Durante a Entrada", el);
 
-      done(); // Indica a conclusão da transição (entrada)
+      // done(); // Indica a conclusão da transição (entrada)
     },
     aposAEntrada(el) {
       console.log("Apos a Entrada", el);
@@ -116,10 +118,11 @@ export default {
     antesDaSaida(el) {
       console.log("Antes da Saida", el);
     },
-    duranteASaida(el, done) {
+    // duranteASaida(el, done) {
+    duranteASaida(el) {
       console.log("Durante a Saida", el);
 
-      done(); // Indica a conclusão da transição (saída)
+      // done(); // Indica a conclusão da transição (saída)
     },
     aposASaida(el) {
       console.log("Após a Saida", el);
