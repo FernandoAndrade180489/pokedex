@@ -21,15 +21,13 @@
               </transition>
 
               <div class="evolucoes">
-                <transition name="fade">
+                <transition name="fade" v-for="e in pokemon.evolucoes" :key="e">
                   <img
-                    src="@/assets/imgs/pokemons/003.png"
-                    v-if="exibirEvolucoes"
-                  />
-                </transition>
-                <transition name="fade">
-                  <img
-                    src="@/assets/imgs/pokemons/002.png"
+                    :src="
+                      require(`@/assets/imgs/pokemons/${e
+                        .toString()
+                        .padStart(3, '0')}.png`)
+                    "
                     v-if="exibirEvolucoes"
                   />
                 </transition>
@@ -246,6 +244,7 @@ export default {
         }, 1000);
       }
       this.pokemon = p;
+      this.exibirEvolucoes = !this.exibirEvolucoes;
       this.exibir = !this.exibir;
     },
     exibirEvolucoesTransicao() {
@@ -377,6 +376,5 @@ body {
   cursor: pointer;
   max-width: 100%;
   max-height: 100%;
-  float: right;
 }
 </style>
