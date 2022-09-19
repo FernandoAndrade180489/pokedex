@@ -176,3 +176,28 @@
     transform: scale(1, 1) translateY(0);
   }
 }
+
+/* Slide de cima para baixo (utilizando nomes de classes customizados) */
+.entrada-estado-inicial {
+  opacity: 0;
+  transform: translateY(-150px);
+}
+
+.entrada-estado-final {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.saida-estado-inicial {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.saida-estado-final {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.transicao {
+  transition: all 2s;
+}
