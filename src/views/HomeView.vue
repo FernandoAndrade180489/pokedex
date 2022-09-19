@@ -238,6 +238,13 @@ export default {
   }),
   methods: {
     analisarPokemon(p) {
+      // se o pokemon atual é diferente do pokemon clicado
+      // se o atributo exibir é true
+      if (this.pokemon.id != p.id && this.exibir) {
+        setTimeout(() => {
+          this.analisarPokemon(p);
+        }, 1000);
+      }
       this.pokemon = p;
       this.exibir = !this.exibir;
     },
