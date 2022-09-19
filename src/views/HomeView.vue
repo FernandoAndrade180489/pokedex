@@ -89,7 +89,7 @@ body {
 
 <style scoped>
 /* Entrada do elemento HTML */
-.v-enter-from {
+/* .v-enter-from {
   opacity: 0;
 }
 
@@ -99,10 +99,24 @@ body {
 
 .v-enter-to {
   opacity: 1;
+} */
+
+.v-enter-from {
+  opacity: 0;
+  transform: translateX(-150px);
+}
+
+.v-enter-active {
+  transition: all 1s;
+}
+
+.v-enter-to {
+  opacity: 1;
+  transform: translateX(0px);
 }
 
 /* Saída do elemento HTML */
-.v-leave-from {
+/* .v-leave-from {
   opacity: 1;
 }
 
@@ -112,6 +126,20 @@ body {
 
 .v-leave-to {
   opacity: 0;
+} */
+
+.v-leave-from {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.v-leave-active {
+  transition: all 0.5s;
+}
+
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(150px);
 }
 
 /* --------- */
