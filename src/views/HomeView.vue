@@ -88,6 +88,18 @@ body {
 </style>
 
 <style scoped>
+.v-enter-from {
+  opacity: 0;
+}
+
+.v-enter-active {
+  transition: opacity 2s;
+}
+
+.v-enter-to {
+  opacity: 1;
+}
+
 .pokedex {
   padding: 20px;
   background-color: #ffffff;
