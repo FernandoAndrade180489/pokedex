@@ -88,17 +88,33 @@ body {
 </style>
 
 <style scoped>
+/* Entrada do elemento HTML */
 .v-enter-from {
   opacity: 0;
 }
 
 .v-enter-active {
-  transition: opacity 2s;
+  transition: opacity 1s;
 }
 
 .v-enter-to {
   opacity: 1;
 }
+
+/* Saída do elemento HTML */
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-leave-active {
+  transition: opacity 0.5s;
+}
+
+.v-leave-to {
+  opacity: 0;
+}
+
+/* --------- */
 
 .pokedex {
   padding: 20px;
