@@ -9,27 +9,26 @@
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
               <transition
-                @before-enter="antesDaEntrada"
-                @enter="duranteAEntrada"
-                @after-enter="aposAEntrada"
-                @enter-cancelled="quantoEntradaCancelada"
-                @before-leave="antesDaSaida"
-                @leave="duranteASaida"
-                @after-leave="aposASaida"
-                @leave-cancelled="quantoSaidaCancelada"
+                @after-enter="exibirEvolucoesTransicao"
+                @before-leave="ocultarEvolucoesTransicao"
                 enter-active-class="animate__animated animate__bounceIn"
                 leave-active-class="animate__animated animate__bounceOut"
-                :duration="{ enter: 2000, leave: 1000 }"
               >
                 <img src="@/assets/imgs/pokemons/001.png" v-if="exibir" />
               </transition>
 
               <div class="evolucoes">
                 <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/003.png" v-if="exibir" />
+                  <img
+                    src="@/assets/imgs/pokemons/003.png"
+                    v-if="exibirEvolucoes"
+                  />
                 </transition>
                 <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/002.png" v-if="exibir" />
+                  <img
+                    src="@/assets/imgs/pokemons/002.png"
+                    v-if="exibirEvolucoes"
+                  />
                 </transition>
               </div>
             </div>
@@ -98,37 +97,14 @@ export default {
   name: "HomeView",
   data: () => ({
     exibir: false,
+    exibirEvolucoes: false,
   }),
   methods: {
-    antesDaEntrada(el) {
-      console.log("Antes da Entrada", el);
+    exibirEvolucoesTransicao() {
+      this.exibirEvolucoes = true;
     },
-    // duranteAEntrada(el, done) {
-    duranteAEntrada(el) {
-      console.log("Durante a Entrada", el);
-
-      // done(); // Indica a conclusão da transição (entrada)
-    },
-    aposAEntrada(el) {
-      console.log("Apos a Entrada", el);
-    },
-    quantoEntradaCancelada(el) {
-      console.log("Quando a Entrada Cancelada", el);
-    },
-    antesDaSaida(el) {
-      console.log("Antes da Saida", el);
-    },
-    // duranteASaida(el, done) {
-    duranteASaida(el) {
-      console.log("Durante a Saida", el);
-
-      // done(); // Indica a conclusão da transição (saída)
-    },
-    aposASaida(el) {
-      console.log("Após a Saida", el);
-    },
-    quantoSaidaCancelada(el) {
-      console.log("Quando a Saida é Cancelada", el);
+    ocultarEvolucoesTransicao() {
+      this.exibirEvolucoes = false;
     },
   },
 };
