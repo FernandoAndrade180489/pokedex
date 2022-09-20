@@ -208,8 +208,7 @@
   transform: translateX(-150px);
 }
 
-.lista-enter-active,
-.lista-leave-active {
+.lista-enter-active {
   transition: all 1s;
 }
 
@@ -219,7 +218,16 @@
   transform: translateX(0px);
 }
 
+.lista-leave-active {
+  transition: all 1s;
+  position: absolute;
+}
+
 .lista-leave-to {
   opacity: 0;
   transform: translateX(150px);
+}
+
+.lista-move {
+  transition: all 1s;
 }
