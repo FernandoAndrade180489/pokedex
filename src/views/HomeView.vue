@@ -64,6 +64,7 @@
                 v-slot="{ Component }"
                 :pokemon="pokemon"
                 @adicionarHabilidade="adicionarHabilidade"
+                @removerHabilidade="removerHabilidade"
               >
                 <transition
                   enter-active-class="animate__animated animate__zoomInDown"
@@ -184,6 +185,11 @@ export default {
 
       if (this.pokemon.habilidades) {
         this.pokemon.habilidades.push(habilidade);
+      }
+    },
+    removerHabilidade(index) {
+      if (this.pokemon.habilidades[index]) {
+        this.pokemon.habilidades.splice(index, 1);
       }
     },
   },
