@@ -201,3 +201,25 @@
 .transicao {
   transition: all 2s;
 }
+
+/* transition-group lista que terá um efeito de Slide */
+.lista-enter-from {
+  opacity: 0;
+  transform: translateX(-150px);
+}
+
+.lista-enter-active,
+.lista-leave-active {
+  transition: all 1s;
+}
+
+.lista-enter-to,
+.lista-leave-from {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.lista-leave-to {
+  opacity: 0;
+  transform: translateX(150px);
+}

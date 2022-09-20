@@ -4,18 +4,20 @@
     <div v-else>
       <table class="table text-white">
         <tbody>
-          <tr v-for="(h, index) in pokemon.habilidades" :key="index">
-            <td>{{ h }}</td>
-            <td class="d-flex justify-content-end">
-              <button
-                type="button"
-                class="btn btn-danger btn-sm"
-                @click="$emit('removerHabilidade', index)"
-              >
-                x
-              </button>
-            </td>
-          </tr>
+          <transition-group name="lista">
+            <tr v-for="(h, index) in pokemon.habilidades" :key="index">
+              <td>{{ h }}</td>
+              <td class="d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  @click="$emit('removerHabilidade', index)"
+                >
+                  x
+                </button>
+              </td>
+            </tr>
+          </transition-group>
         </tbody>
       </table>
       <input
