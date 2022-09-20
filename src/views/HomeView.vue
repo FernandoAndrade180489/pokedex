@@ -60,7 +60,11 @@
 
             <div class="detalhes">
               <!-- exibe dados de acordo com o menu de navegação -->
-              <router-view v-slot="{ Component }" :pokemon="pokemon">
+              <router-view
+                v-slot="{ Component }"
+                :pokemon="pokemon"
+                @adicionarHabilidade="adicionarHabilidade"
+              >
                 <transition
                   enter-active-class="animate__animated animate__zoomInDown"
                 >
@@ -171,6 +175,16 @@ export default {
     },
     ocultarEvolucoesTransicao() {
       this.exibirEvolucoes = false;
+    },
+    adicionarHabilidade(habilidade) {
+      console.log(
+        "Estamos no componente PAI (Home) com a habilidade",
+        habilidade
+      );
+
+      if (this.pokemon.habilidades) {
+        this.pokemon.habilidades.push(habilidade);
+      }
     },
   },
 };

@@ -16,6 +16,8 @@
         type="text"
         class="form-control"
         placeholder="Adicionar habilidade"
+        v-model="habilidade"
+        @keyup.enter="adicionarHabilidade"
       />
     </div>
   </div>
@@ -26,6 +28,15 @@ export default {
   name: "HabilidadesView",
   props: {
     pokemon: Object,
+  },
+  data: () => ({
+    habilidade: "",
+  }),
+  methods: {
+    adicionarHabilidade() {
+      this.$emit("adicionarHabilidade", this.habilidade);
+      this.habilidade = "";
+    },
   },
 };
 </script>
