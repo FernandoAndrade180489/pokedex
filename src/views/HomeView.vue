@@ -98,10 +98,19 @@
           </div>
 
           <div class="col">
+            <!-- <input
+              type="text"
+              class="form-control"
+              placeholder="Pesquisar pokémon na tela enter"
+              v-model="nomePokemon"
+              @keyup.enter="filtrarPokemonsPorNome"
+            /> -->
+
             <input
               type="text"
               class="form-control"
               placeholder="Pesquisar pokémon"
+              v-model="nomePokemon2"
             />
           </div>
         </div>
@@ -147,8 +156,17 @@ export default {
     pokemon: {},
     pokemons: [],
     ordenacao: "",
+    nomePokemon: "",
+    nomePokemon2: "",
   }),
   watch: {
+    nomePokemon2(valorNovo) {
+      fetch(`http://localhost:3000/pokemons?nome_like=${valorNovo}`)
+        .then((response) => response.json())
+        .then((data) => {
+          this.pokemons = data;
+        });
+    },
     ordenacao(valorNovo) {
       if (valorNovo == 1) {
         // ordenação por id crescente
@@ -258,6 +276,13 @@ export default {
       if (this.pokemon.habilidades[index]) {
         this.pokemon.habilidades.splice(index, 1);
       }
+    },
+    filtrarPokemonsPorNome() {
+      fetch(`http://localhost:3000/pokemons?nome_like=${this.nomePokemon}`)
+        .then((response) => response.json())
+        .then((data) => {
+          this.pokemons = data;
+        });
     },
   },
 };
