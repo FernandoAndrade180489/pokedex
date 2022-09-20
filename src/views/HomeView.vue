@@ -60,7 +60,11 @@
 
             <div class="detalhes">
               <!-- exibe dados de acordo com o menu de navegação -->
-              <router-view></router-view>
+              <transition
+                enter-active-class="animate__animated animate__zoomInDown"
+              >
+                <router-view></router-view>
+              </transition>
             </div>
           </div>
         </div>
