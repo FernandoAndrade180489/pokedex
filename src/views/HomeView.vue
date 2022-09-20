@@ -111,7 +111,12 @@
               <h1>{{ p.id }} {{ p.nome }}</h1>
               <span>{{ p.tipo }}</span>
               <div class="cartao-pokemon-img">
-                <img :src="require(`@/assets/imgs/pokemons/${p.imagem}`)" />
+                <transition
+                  appear
+                  enter-active-class="animate__animated animate__fadeInDown"
+                >
+                  <img :src="require(`@/assets/imgs/pokemons/${p.imagem}`)" />
+                </transition>
               </div>
             </div>
             <!-- fim listagem dinâmica -->
