@@ -148,14 +148,23 @@ export default {
     analisarPokemon(p) {
       // se o pokemon atual é diferente do pokemon clicado
       // se o atributo exibir é true
+      let mudaPokemonAnalisado = false;
       if (this.pokemon.id != p.id && this.exibir) {
         setTimeout(() => {
           this.analisarPokemon(p);
         }, 1000);
+
+        mudaPokemonAnalisado = true;
       }
       this.pokemon = p;
       this.exibirEvolucoes = !this.exibirEvolucoes;
       this.exibir = !this.exibir;
+
+      // se a ação for de ocultar o Pokémon
+      // se a ação recursiva não for chamada
+      if (!this.exibir && !mudaPokemonAnalisado) {
+        this.pokemon = {};
+      }
     },
     exibirEvolucoesTransicao() {
       this.exibirEvolucoes = true;
