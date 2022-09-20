@@ -5,7 +5,7 @@
       <table class="table text-white">
         <tbody>
           <transition-group name="lista">
-            <tr v-for="(h, index) in pokemon.habilidades" :key="index">
+            <tr v-for="(h, index) in pokemon.habilidades" :key="h">
               <td>{{ h }}</td>
               <td class="d-flex justify-content-end">
                 <button
